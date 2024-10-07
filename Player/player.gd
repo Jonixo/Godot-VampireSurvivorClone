@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 ## our movement speed variable
 var movement_speed = 40.0
+var hp = 80
+
 @onready var sprite = $Sprite2D
 @onready var walkTimer = get_node("%walkTimer")
 
@@ -29,3 +31,7 @@ func movement():
 	
 	velocity = mov.normalized() * movement_speed ## multiply movement speed with normalized vector movement to get velocity
 	move_and_slide() ##godot function specificly for characterbody2d 
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	print(hp)

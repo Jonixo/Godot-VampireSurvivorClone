@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2mn0d108ngst"]
+[gd_scene load_steps=4 format=3 uid="uid://d2mn0d108ngst"]
 
 [ext_resource type="Texture2D" uid="uid://quiqn4oskso5" path="res://Textures/dirt_full_new.png" id="1_isyl7"]
 [ext_resource type="PackedScene" uid="uid://2ascalvcjtwp" path="res://Player/player.tscn" id="2_lus28"]
-[ext_resource type="Script" path="res://Player/player.gd" id="3_3j7ik"]
-[ext_resource type="PackedScene" uid="uid://c0644kan3c6rc" path="res://Enemy/enemy.tscn" id="4_xxroj"]
+[ext_resource type="PackedScene" uid="uid://cmwrh584ytidf" path="res://Utility/enemy_spawner.tscn" id="3_8yq5a"]
 
 [node name="World" type="Node2D"]
 
@@ -17,7 +16,5 @@ region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("2_lus28")]
 position = Vector2(0, 0)
-script = ExtResource("3_3j7ik")
 
-[node name="Enemy_Kobolt_Weak" parent="." instance=ExtResource("4_xxroj")]
-position = Vector2(87, 37)
+[node name="EnemySpawner" parent="." instance=ExtResource("3_8yq5a")]

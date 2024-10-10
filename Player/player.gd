@@ -13,7 +13,7 @@ var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 
 #IceSpear
 var icespear_ammo = 0
-var icespear_baseammo = 5
+var icespear_baseammo = 1
 var icespear_attackspeed = 1.5
 var icespear_level = 1
 
@@ -57,7 +57,7 @@ func attack():
 		if iceSpearTimer.is_stopped():
 			iceSpearTimer.start()
 
-func _on_hurt_box_hurt(damage):
+func _on_hurt_box_hurt(damage, _angle, _knockback): ##we dont need angle or knockback here but function needs args
 	hp -= damage
 	print(hp)
 

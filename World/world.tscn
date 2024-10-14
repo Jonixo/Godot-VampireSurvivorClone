@@ -9,7 +9,7 @@
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
-position = Vector2(-667, -78)
+position = Vector2(-613, -71)
 texture = ExtResource("1_isyl7")
 region_enabled = true
 region_rect = Rect2(0, 0, 4000, 4000)
@@ -18,3 +18,5 @@ region_rect = Rect2(0, 0, 4000, 4000)
 position = Vector2(0, 0)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_8yq5a")]
+
+[node name="Loot" type="Node2D" parent="." groups=["loot"]]

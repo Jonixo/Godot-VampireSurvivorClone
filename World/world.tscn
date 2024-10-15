@@ -23,4 +23,4 @@ position = Vector2(0, 0)
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("4_5nqvr")]
-experience = 10
+experience = 500

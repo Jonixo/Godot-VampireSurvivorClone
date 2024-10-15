@@ -1,15 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2mn0d108ngst"]
+[gd_scene load_steps=21 format=3 uid="uid://d2mn0d108ngst"]
 
 [ext_resource type="Texture2D" uid="uid://quiqn4oskso5" path="res://Textures/dirt_full_new.png" id="1_isyl7"]
 [ext_resource type="PackedScene" uid="uid://2ascalvcjtwp" path="res://Player/player.tscn" id="2_lus28"]
 [ext_resource type="PackedScene" uid="uid://cmwrh584ytidf" path="res://Utility/enemy_spawner.tscn" id="3_8yq5a"]
-[ext_resource type="PackedScene" uid="uid://fus2o3xe0vqe" path="res://Objects/experience_gem.tscn" id="4_5nqvr"]
 [ext_resource type="Script" path="res://Utility/spawn_info.gd" id="4_ryhjc"]
 [ext_resource type="PackedScene" uid="uid://c0644kan3c6rc" path="res://Enemy/enemy_kobold_weak.tscn" id="5_2cemf"]
 [ext_resource type="PackedScene" uid="uid://udvvvy0k528t" path="res://Enemy/enemy_kobold_strong.tscn" id="6_y3xy2"]
 [ext_resource type="PackedScene" uid="uid://cipmcsl1y2qkc" path="res://Enemy/enemy_cyclops.tscn" id="7_t30dd"]
 [ext_resource type="PackedScene" uid="uid://b6w52qjs2shj8" path="res://Enemy/enemy_juggernaut.tscn" id="8_bnef3"]
 [ext_resource type="PackedScene" uid="uid://cp1he8emfhw54" path="res://Enemy/enemy_super.tscn" id="9_lykwa"]
+[ext_resource type="AudioStream" uid="uid://86eirb7pa4cg" path="res://Audio/Music/battleThemeA.mp3" id="10_arhly"]
+[ext_resource type="Script" path="res://World/snd_music.gd" id="11_six4k"]
 
 [sub_resource type="Resource" id="Resource_djmtc"]
 script = ExtResource("4_ryhjc")
@@ -101,5 +102,12 @@ spawns = Array[ExtResource("4_ryhjc")]([SubResource("Resource_djmtc"), SubResour
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
-[node name="ExperienceGem" parent="Loot" instance=ExtResource("4_5nqvr")]
-experience = 500
+[node name="snd_Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("10_arhly")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("11_six4k")
+
+[connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]

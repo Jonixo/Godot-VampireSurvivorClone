@@ -63,7 +63,7 @@ script = ExtResource("1_wyqhx")
 movement_speed = 28.0
 hp = 20
 experience = 2
-damage = 2
+enemy_damage = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_di51c")

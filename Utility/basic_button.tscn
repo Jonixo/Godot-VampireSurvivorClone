@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://byk80aipo2dxr"]
+
+[ext_resource type="AudioStream" uid="uid://qde8c2lintj5" path="res://Audio/GUI/hover.wav" id="1_7elo5"]
+[ext_resource type="Script" path="res://Utility/basic_button.gd" id="1_7lhoh"]
+[ext_resource type="FontFile" uid="uid://bvm4dla5ptblc" path="res://Font/tenderness.otf" id="1_snlyx"]
+[ext_resource type="AudioStream" uid="uid://dwlhum57a2s6q" path="res://Audio/GUI/click.wav" id="2_t34cu"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(80, 30)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_snlyx")
+theme_override_font_sizes/font_size = 20
+text = "Menu
+"
+script = ExtResource("1_7lhoh")
+
+[node name="snd_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_7elo5")
+
+[node name="snd_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t34cu")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="finished" from="snd_click" to="." method="_on_snd_click_finished"]

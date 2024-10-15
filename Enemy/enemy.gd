@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var hp = 10
 @export var knockback_recovery = 3.5
 @export var experience = 1
+@export var damage = 1
 var knockback = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player") ##onready var gets a value after the nodes are loaded
@@ -13,6 +14,7 @@ var knockback = Vector2.ZERO
 @onready var walkTimer = get_node("%walkTimer")
 @onready var anim = $AnimationPlayer ##we want mobs to always animate to we use animation player
 @onready var snd_hit = $snd_hit
+@onready var hitBox = $HitBox
 
 var deart_anim = preload("res://Enemy/explosion.tscn")
 var exp_gem = preload("res://Objects/experience_gem.tscn")
@@ -22,6 +24,7 @@ signal remove_from_Array(object)
 
 func _ready():
 	anim.play("walk")
+	hitBox.damage = damage
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
